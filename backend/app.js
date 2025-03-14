@@ -4,6 +4,7 @@ import productoRoutes from "./src/router/products.js"
 import clientsRoutes from "./src/router/clients.js"
 import employeesRoutes from "./src/router/employees.js"
 import branchesRoutes from "./src/router/branches.js"
+import reviews from "./src/router/reviews.js"
 
 
 
@@ -17,6 +18,7 @@ app.use("/api/products", productoRoutes);
 app.use("/api/clients", clientsRoutes);
 app.use("/api/employees", employeesRoutes);
 app.use("/api/branches", branchesRoutes);
+app.use("/api/reviews", reviews);
 
 
 
