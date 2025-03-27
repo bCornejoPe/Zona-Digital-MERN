@@ -5,6 +5,9 @@ import clientsRoutes from "./src/router/clients.js"
 import employeesRoutes from "./src/router/employees.js"
 import branchesRoutes from "./src/router/branches.js"
 import reviews from "./src/router/reviews.js"
+import registerEmployeesRoutes from "./src/router/registerEmployees.js";
+import cookieParser from "cookie-parser";
+
 
 
 
@@ -19,6 +22,7 @@ app.use("/api/clients", clientsRoutes);
 app.use("/api/employees", employeesRoutes);
 app.use("/api/branches", branchesRoutes);
 app.use("/api/reviews", reviews);
+app.use("/api/registerEmployees", registerEmployeesRoutes);
 
 
 
