@@ -7,6 +7,8 @@ import branchesRoutes from "./src/router/branches.js"
 import reviews from "./src/router/reviews.js"
 import registerEmployeesRoutes from "./src/router/registerEmployees.js";
 import cookieParser from "cookie-parser";
+import loginRoutes from "./src/router/login.js";
+import logoutRoutes from "./src/router/logout.js";
 
 
 
@@ -15,6 +17,7 @@ import cookieParser from "cookie-parser";
 const app = express();
 
 app.use(express.json());
+app.use(cookieParser())
 
 //Definir la rutas
 app.use("/api/products", productoRoutes);
@@ -23,6 +26,8 @@ app.use("/api/employees", employeesRoutes);
 app.use("/api/branches", branchesRoutes);
 app.use("/api/reviews", reviews);
 app.use("/api/registerEmployees", registerEmployeesRoutes);
+app.use("/api/login", loginRoutes)
+app.use("/api/logout", logoutRoutes) 
 
 
 
