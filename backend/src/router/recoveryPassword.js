@@ -1,8 +1,9 @@
 import express from "express";
-import registerClientController from "../controllers/registerClientsController.js";
+import recoveryPassword from "../controllers/recoveryPasswordController.js";
 
 const router = express.Router();
 
-router.route("requestCode").post(registerClientController.requestCode);
+router.route("/requestCode").post(recoveryPassword.requestCode);
+router.route("/verifyCode").post(recoveryPassword.verifyCode)
 
 export default router
