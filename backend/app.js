@@ -11,6 +11,7 @@ import loginRoutes from "./src/router/login.js";
 import logoutRoutes from "./src/router/logout.js";
 import registerClient from "./src/router/registerClients.js";
 import recoveryPassword from "./src/router/recoveryPassword.js";
+import providersRoutes from "./src/router/providers.js"
 
 
 
@@ -32,8 +33,7 @@ app.use("/api/login", loginRoutes)
 app.use("/api/logout", logoutRoutes) 
 app.use("/api/registerClients", registerClient )
 app.use("/api/recoveryPassword", recoveryPassword)
-
-
+app.use("/api/providers", providersRoutes)
 
 //Exporto la constante para poder usar express en otros archivos
 export default app;
