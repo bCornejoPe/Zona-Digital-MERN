@@ -12,7 +12,7 @@ import logoutRoutes from "./src/router/logout.js";
 import registerClient from "./src/router/registerClients.js";
 import recoveryPassword from "./src/router/recoveryPassword.js";
 import providersRoutes from "./src/router/providers.js"
-
+import { validateAuthToken } from "./src/middleware/valideAuthToken.js";
 
 
 
@@ -23,17 +23,17 @@ app.use(express.json());
 app.use(cookieParser())
 
 //Definir la rutas
-app.use("/api/products", productoRoutes);
+app.use("/api/products", validateAuthToken(["admin", "employee"]),productoRoutes);
 app.use("/api/clients", clientsRoutes);
 app.use("/api/employees", employeesRoutes);
 app.use("/api/branches", branchesRoutes);
 app.use("/api/reviews", reviews);
-app.use("/api/registerEmployees", registerEmployeesRoutes);
+app.use("/api/registerEmployees", validateAuthToken(["admin"]), registerEmployeesRoutes);
 app.use("/api/login", loginRoutes)
 app.use("/api/logout", logoutRoutes) 
 app.use("/api/registerClients", registerClient )
 app.use("/api/recoveryPassword", recoveryPassword)
-app.use("/api/providers", providersRoutes)
+app.use("/api/providers", validateAuthToken(["admin"]), providersRoutes)
 
 //Exporto la constante para poder usar express en otros archivos
 export default app;
