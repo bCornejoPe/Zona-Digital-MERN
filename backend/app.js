@@ -12,6 +12,7 @@ import logoutRoutes from "./src/router/logout.js";
 import registerClient from "./src/router/registerClients.js";
 import recoveryPassword from "./src/router/recoveryPassword.js";
 import providersRoutes from "./src/router/providers.js"
+import faqsRoutes from "./src/router/faqs.js"
 import { validateAuthToken } from "./src/middleware/valideAuthToken.js";
 
 
@@ -33,6 +34,7 @@ app.use("/api/login", loginRoutes)
 app.use("/api/logout", logoutRoutes) 
 app.use("/api/registerClients", registerClient )
 app.use("/api/recoveryPassword", recoveryPassword)
+app.use("/api/faqs",faqsRoutes)
 app.use("/api/providers", validateAuthToken(["admin"]), providersRoutes)
 
 //Exporto la constante para poder usar express en otros archivos
