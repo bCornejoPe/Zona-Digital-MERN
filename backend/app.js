@@ -15,11 +15,20 @@ import providersRoutes from "./src/router/providers.js"
 import faqsRoutes from "./src/router/faqs.js"
 import { validateAuthToken } from "./src/middleware/valideAuthToken.js";
 
+import swaggerUi from "swagger-ui-express"
+import fs from "fs"
+import path from "path"
+
+
 
 
 //Paso 2 Creo una constante que es igual a la libreria que cree
 const app = express();
+const swaggerDocument = JSON.parse(
+    fs.readFileSync(path.resolve("./DocumentacionZonaDigital.json"), "utf-8")
+)
 
+app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 app.use(express.json());
 app.use(cookieParser())
 
