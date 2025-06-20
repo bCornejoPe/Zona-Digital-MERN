@@ -13,6 +13,7 @@ import registerClient from "./src/router/registerClients.js";
 import recoveryPassword from "./src/router/recoveryPassword.js";
 import providersRoutes from "./src/router/providers.js"
 import faqsRoutes from "./src/router/faqs.js"
+import salesRoutes from "./src/router/sales.js"
 import { validateAuthToken } from "./src/middleware/valideAuthToken.js";
 
 import swaggerUi from "swagger-ui-express"
@@ -38,6 +39,7 @@ app.use("/api/clients", clientsRoutes);
 app.use("/api/employees", employeesRoutes);
 app.use("/api/branches", branchesRoutes);
 app.use("/api/reviews", reviews);
+app.use("/api/sales", salesRoutes);
 app.use("/api/registerEmployees", validateAuthToken(["admin"]), registerEmployeesRoutes);
 app.use("/api/login", loginRoutes)
 app.use("/api/logout", logoutRoutes) 
