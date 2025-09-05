@@ -14,6 +14,7 @@ import recoveryPassword from "./src/router/recoveryPassword.js";
 import providersRoutes from "./src/router/providers.js"
 import faqsRoutes from "./src/router/faqs.js"
 import salesRoutes from "./src/router/sales.js"
+import limiter from "./src/middleware/rateLimiter.js" 
 import { validateAuthToken } from "./src/middleware/valideAuthToken.js";
 
 import swaggerUi from "swagger-ui-express"
@@ -32,6 +33,7 @@ const swaggerDocument = JSON.parse(
 app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 app.use(express.json());
 app.use(cookieParser())
+app.use(limiter)
 
 //Definir la rutas
 app.use("/api/products", validateAuthToken(["admin", "employee"]),productoRoutes);
